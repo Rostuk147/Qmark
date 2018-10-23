@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
     ></app-registration>`
 })
 export class RegistrationContainer {
-  public signIn(credentials: { userName: string, password: string }): void {
+  public signIn(credentials: { userName: string, password: string, confirmPassword: string }): void {
     console.log(credentials);
   }
 }

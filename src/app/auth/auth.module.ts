@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthRoutingModule} from './auth-routing.module';
 import {RegistrationComponent} from './registration/registration/registration.component';
 import {LogInComponent} from './log-in/log-in/log-in.component';
@@ -8,16 +7,21 @@ import {ResetPasswordComponent} from './reset-password/reset-password/reset-pass
 import {LogInContainer} from './log-in/log-in.container';
 import {RegistrationContainer} from './registration/registration.container';
 import {ResetPasswordContainer} from './reset-password/reset-password.container';
-import {AuthWrapComponent} from './auth-wrap/auth-wrap/auth-wrap.component';
-import {AuthWrapContainer} from './auth-wrap/auth-wrap.container';
+import {AuthWrapComponent} from './auth-wrap/auth-wrap.component';
+import {SharedModule} from '../shared/shared.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule, MatToolbarModule} from '@angular/material';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     AuthRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
+    MatToolbarModule,
+    MatInputModule,
+    SharedModule
   ],
   declarations: [
     RegistrationComponent,
@@ -26,8 +30,7 @@ import {AuthWrapContainer} from './auth-wrap/auth-wrap.container';
     ResetPasswordComponent,
     LogInContainer,
     ResetPasswordContainer,
-    AuthWrapComponent,
-    AuthWrapContainer
+    AuthWrapComponent
   ]
 })
 export class AuthModule {

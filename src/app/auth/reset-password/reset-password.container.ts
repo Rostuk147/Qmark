@@ -4,11 +4,11 @@ import {Component} from '@angular/core';
   selector: 'app-log-in-container',
   template: `
     <app-reset-password
-      (signInEmit)="signIn($event)"
+      (resetPassEmit)="resetPass($event)"
     ></app-reset-password>`
 })
 export class ResetPasswordContainer {
-  public signIn(credentials: { userName: string, password: string }): void {
+  public resetPass(credentials: { email: string }): void {
     console.log(credentials);
   }
 }
