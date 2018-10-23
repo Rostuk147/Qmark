@@ -1,3 +1,25 @@
-<p>
-  registration works!
-</p>
+<div class="content">
+  <img src="../../../../assets/images/auth/logo.jpg" alt="">
+  <h4 class="title">Registration</h4>
+  <p>Please enter the following information</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">{{getErrorMessageEmail()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" required>
+      <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">{{getErrorMessagePassword()}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirm Password" formControlName="confirmPassword" required>
+      <mat-error *ngIf="form.get('confirmPassword').invalid && form.get('confirmPassword').touched">
+        {{getErrorMessagePassword()}}
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="form.invalid" type="submit">Sign Up</button>
+  </form>
+  <p class="log-descr">Already have an account? <a routerLink="/log-in">Log In</a></p>
+</div>
+

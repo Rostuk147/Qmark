@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -6,10 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  @Output() signInEmit: EventEmitter<{ email: string, password: string, confirmPassword: string }> = new EventEmitter();
+  form: FormGroup;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'confirmPassword': new FormControl(null, [Validators.required, Validators.minLength(6)])
+    });
   }
+
+  public getErrorMessageEmail() {
+    return this.form.get('email')['errors']['required'] ? 'You must enter a E-mail' :
+      this.form.get('email')['errors']['email'] ? 'Not a valid E-mail' :
+        '';
+  }
+
+  public getErrorMessagePassword() {
+    return this.form.get('password')['errors']['required'] ? 'Password is Required' :
+      this.form.get('password')['errors']['minlength'] ? `Password must contain at least  ${this.form.get('password')['errors']['minlength']['requiredLength']} characters.` :
+        '';
+  }
+
+  public onSubmit(): void {
+    this.signInEmit.emit({
+      email: this.form.value.email,
+      password: this.form.value.password,
+      confirmPassword: this.form.value.confirmPassword
+    });
+  }
+
 
 }

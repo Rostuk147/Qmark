@@ -1,0 +1,97 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 65px;
+  img {
+    display: inline-block;
+    width: 80px;
+    height: 75px;
+    margin-bottom: 30px;
+  }
+  form {
+    text-align: center;
+    width: 100%;
+  }
+  /deep/ .mat-form-field {
+    display: block;
+    margin-bottom: 15px;
+    .mat-form-field-label-wrapper {
+      .mat-form-field-label {
+        color: #494949;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 19px;
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+    &.mat-form-field-invalid {
+      .mat-form-field-label-wrapper {
+        .mat-form-field-label {
+          color: red;
+        }
+      }
+    }
+    .mat-form-field-underline {
+      background-color: #E5E5E5;
+    }
+
+  }
+  h4.title {
+    color: #494949;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+  }
+  p {
+    color: #494949;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+  }
+  button {
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    background: #E2BA59;
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    width: 290px;
+    height: 50px;
+    display: inline-block;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+  .log-descr {
+    color: #494949;
+    opacity: 0.6;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 400;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    a {
+      backface-visibility: hidden;
+      border-bottom: 1px solid #494949;
+      font-family: 'Roboto', sans-serif;
+      &:hover {
+        border-bottom: none;
+        backface-visibility: hidden;
+      }
+    }
+  }
+}

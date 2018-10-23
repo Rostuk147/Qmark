@@ -1,14 +1,18 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthWrapContainer} from './auth-wrap/auth-wrap.container';
 import {LogInContainer} from './log-in/log-in.container';
+import {AuthWrapComponent} from './auth-wrap/auth-wrap.component';
+import {RegistrationContainer} from './registration/registration.container';
+import {ResetPasswordContainer} from './reset-password/reset-password.container';
 
 
 export const authRoutes: Routes = [
   {
-    path: '', component: AuthWrapContainer, children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LogInContainer},
+    path: '', component: AuthWrapComponent, children: [
+      {path: '', redirectTo: 'registration', pathMatch: 'full'},
+      {path: 'registration', component: RegistrationContainer},
+      {path: 'log-in', component: LogInContainer},
+      {path: 'reset-password', component: ResetPasswordContainer},
     ]
   }
 ];
